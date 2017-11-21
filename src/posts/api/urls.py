@@ -5,10 +5,12 @@ from .views import (
     PostsListAPIView,
     PostDetailAPIView,
     PostUpdateAPIView,
-    PostDeleteAPIView
+    PostDeleteAPIView,
+    PostCreateAPIView
 )
 
 urlpatterns = [
+    url(r'^create$', PostCreateAPIView.as_view(), name='create'),
     url(r'^$', PostsListAPIView.as_view(), name='list'),
     url(r'^(?P<slug>[\w\d-]+)/$', PostDetailAPIView.as_view(), name='detail'),
     url(r'^(?P<slug>[\w-]+)/edit/$', PostUpdateAPIView.as_view(), name='update'),
